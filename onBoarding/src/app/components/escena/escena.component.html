@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center max_height">
+    @for ( phrase of phrases; track $index) {
+    @if($index === slide) {
+    <div [@movingBack]="isMovingBack ? 'start' : 'end' " [@movingForward]='isMovingFront ? "start" : "end" '
+        [@fade]='isFade ? "start" : "end"' class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{phrase.img}}" alt="Card image cap" [style.background-color]=phrase.bgcolor>
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold">{{phrase.title}}</h5>
+            <p class="card-text">{{ phrase.description}}</p>
+            <div class="card--footer d-flex justify-content-between">
+                <div class="card--footer_bullets d-flex align-items-center gap-3">
+                    <div [class.active]="slide === 0" class="card--footer_bullet"></div>
+                    <div [class.active]="slide === 1" class="card--footer_bullet"></div>
+                    <div [class.active]="slide === 2" class="card--footer_bullet"></div>
+                </div>
+                <div class="btns d-flex gap-3">
+                    @if(slide > 0) {
+                    <button (click)="previousCard()" class="btn btn-primary"><fa-icon
+                            [icon]="faArrowLeft"></fa-icon></button>
+                    }
+                    @if(slide < phrases.length -1 ) { <button (click)="nextCard()" class="btn btn-primary"><fa-icon
+                            [icon]="faArrowRight"></fa-icon></button>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+    }
+</div>
