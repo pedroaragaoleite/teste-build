@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "onBoarding": {
+    "on-Boarding": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
